@@ -1,3 +1,6 @@
+# Quick Xkill Command
+bindsym $mod+shift+x exec /usr/bin/xkill
+
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
@@ -13,19 +16,42 @@ new_window pixel 2
 bindsym $mod+u border none
 bindsym $mod+y border pixel 2
 bindsym $mod+n border normal
+
+# Quick Xkill Option
+bindsym $mod+x exec xkill
+
+# Browser Bindings
 bindsym $mod+i exec irc.sh
 #bindsym $mod+i exec vivaldi
-bindsym $mod+c exec chromium
-bindsym $mod+m exec java -jar /home/dasgregor/Minecraft/Minecraft.jar
+#bindsym $mod+c exec firefox-bin
+bindsym $mod+c exec google-chrome-stable
+#bindsym $mod+shift+c exec basilisk
+
+# Minecraft Bindings
+bindsym $mod+ctrl+shift+m exec java -jar /home/dasgregor/Minecraft/TechnicLauncher.jar
+#bindsym $mod+shift+m exec java -jar /home/dasgregor/Minecraft/FTB_Launcher.jar
+bindsym $mod+ctrl+m exec sudo java -jar /home/dasgregor/Minecraft/ATLauncher/ATLauncher.jar
+bindsym $mod+shift+m exec sudo java -jar /home/dasgregor/Testing/ATLauncher/ATLauncher.jar
+bindsym $mod+m exec /home/dasgregor/Minecraft/Vanilla/minecraft-launcher/minecraft-launcher
+#bindsym $mod+m exec java -jar /home/dasgregor/Minecraft/Minecraft.jar
+
+#Misc Bindings
 bindsym $mod+z exec --no-startup-id rofi -show run
 bindsym $mod+p exec pcmanfm
+bindsym $mod+ctrl+p exec pavucontrol
 bindsym $mod+b exec calibre
+#bindsym $mod+g exec /home/dasgregor/src/snapfly-0.8/snapfly-show
+#bindsym #mod+g exec xfce4-popup-applicationsmenu
+
+bindsym Print exec scrot '%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f ~/Pictures/screenshots/'
+#bindsym Shift+Print exec "scrot '%Y-%m-%d-%T_$wx$h_scrot.png' -s -e 'mv $f ~/Pictures/screenshots/'"
 
 #Floating Window Apps
 for_window [class="XCalendar"] floating enable
 for_window [class="SimpleScreenRecorder"] floating enable
 for_window [class="vlc"] floating enabled
 for_window [class="net-minecraft-bootstrap-Bootstrap"] floating enabled
+for_window [class="Popsicle"] floating enabled
 
 #Window Resizing
 bindsym $mod+Ctrl+Right resize grow width 2 px or 2 ppt
@@ -39,7 +65,7 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
 # start a terminal
-bindsym $mod+Return exec konsole
+bindsym $mod+Ctrl+Return exec konsole
 #bindsym $mod+Return exec i3-sensible-terminal
 #bindsym $mod+Return exec urxvtc
 #bindsym $mod+Return exec sakura & sleep .8s && transset -a
@@ -54,8 +80,9 @@ exec --no-startup-id nitrogen --restore
 exec --no-startup-id volumeicon
 exec --no-startup-id compton -b -f
 exec --no-startup-id qjoypad &
-
-
+exec --no-startup-id blueman-applet
+#exec --no-startup-id /usr/bin/synology-drive
+#exec --no-startup-id xfce4-panel --disable-wm-check
 
 
 
@@ -142,7 +169,9 @@ bindsym $mod+h split h
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+bindsym $mod+Shift+f fullscreen toggle
+#bindsym mod4 fullscreen toggle
+
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -191,7 +220,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 #bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-bindsym $mod+Shift+e exec i3-msg exit
+bindsym $mod+Shift+Ctrl+e exec i3-msg exit
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
