@@ -44,13 +44,13 @@ ethernet eth0 {
 
 battery 0 {
         integer_battery_capacity = true
-        format = ":%percentage %remaining %emptytime"
+        format = ":%percentage %remaining"
         format_down = "No battery"
-        status_chr = "⚡ CHR %emptytime"
-        status_bat = "🔋 BAT %remaining"
+        status_chr = "⚡ CHR"
+        status_bat = "🔋 BAT"
         status_unk = "? UNK"
         status_full = "☻ FULL"
-        path = "/sys/class/power_supply/BAT%d/uevent"
+        path = "/sys/class/power_supply/BAT0/uevent"
         low_threshold = 10
 }
 
