@@ -1,0 +1,1 @@
+These are my konsole profile setting that belong in /.local/share/konsole
